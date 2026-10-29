@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EcoSort AI Documentation</title>
+  <style>
+    :root {
+      --bg: #f2f9f1;
+      --panel: #ffffff;
+      --panel-alt: #edf7ee;
+      --heading: #1d4d2f;
+      --accent: #2f8f5b;
+      --accent-2: #6bbf59;
+      --text: #24352d;
+      --muted: #5d6d65;
+      --border: #dfeee0;
+      --code-bg: #0f1720;
+      --code-text: #eafaf0;
+      --shadow: 0 10px 25px rgba(28, 75, 43, 0.08);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(180deg, #f5fbf4 0%, #edf7ee 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 32px 24px 80px;
+    }
+
+    .doc {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+      padding: 32px 40px;
+    }
+
+    h1, h2, h3 {
+      color: var(--heading);
+      margin-top: 1.5em;
+      margin-bottom: 0.55em;
+    }
+
+    h1 {
+      font-size: 2.6rem;
+      margin-top: 0;
+      background: linear-gradient(90deg, var(--heading), var(--accent));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    h2 {
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 8px;
+    }
+
+    p {
+      margin: 0 0 1rem;
+    }
+
+    ul, ol {
+      margin: 0 0 1rem 1.2rem;
+      padding-left: 1.2rem;
+    }
+
+    li {
+      margin: 0.35rem 0;
+    }
+
+    strong {
+      color: var(--heading);
+    }
+
+    .hr {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 2rem 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0 1.5rem;
+      background: var(--panel-alt);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    th, td {
+      border: 1px solid var(--border);
+      padding: 12px 14px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background: #e4f3e8;
+      color: var(--heading);
+    }
+
+    pre {
+      background: var(--code-bg);
+      color: var(--code-text);
+      border-radius: 12px;
+      padding: 16px 18px;
+      overflow-x: auto;
+      margin: 0.8rem 0 1.3rem;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    code {
+      font-family: Consolas, Monaco, monospace;
+      font-size: 0.95em;
+    }
+
+    .small-note {
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    .badge {
+      display: inline-block;
+      background: var(--accent-2);
+      color: #133f25;
+      border-radius: 20px;
+      font-weight: 700;
+      padding: 4px 10px;
+      margin-right: 8px;
+      font-size: 0.82rem;
+    }
+
+    @media (max-width: 760px) {
+      .doc {
+        padding: 22px 18px;
+      }
+
+      h1 {
+        font-size: 2.1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="doc">
+      <h1>🌿 EcoSort AI: Intelligent Waste Management &amp; Resource Conservation Assistant</h1>
+
+      <p><strong>EcoSort AI</strong> is a full-stack, AI-driven waste management, recycling, and resource conservation web platform. Built with <strong>Python, Flask, PyTorch Deep Learning Computer Vision, and SQLite</strong>, it empowers households, institutions, and communities to classify waste with pinpoint accuracy, eliminate recycling contamination, locate certified recycling hubs, and actively reduce their direct water and carbon footprints.</p>
+
+      <hr class="hr" />
+
+      <h2>🌟 Key Capabilities</h2>
+
+      <h3>1. 🔍 Multi-Modal AI Waste Classifier</h3>
+      <ul>
+        <li><strong>Deep Learning Vision Engine</strong>: Leverages a pre-trained <strong>PyTorch MobileNetV2</strong> deep neural network mapped to a comprehensive waste taxonomy (Plastics, Paper &amp; Cardboard, Glass, Metals &amp; Aluminum, Organics &amp; Compost, E-Waste, Hazardous Chemicals, Textiles, and Residual Landfill).</li>
+        <li><strong>Live Webcam &amp; Drag-and-Drop Image Capture</strong>: Snap direct photos via your browser's webcam or drop image files (JPG, PNG, WEBP) onto the interactive dropzone.</li>
+        <li><strong>Natural Language Item Search</strong>: Search over 100+ household materials by text with fuzzy keyword matching.</li>
+        <li><strong>Granular Classification Output</strong>:
+          <ul>
+            <li>Item identification &amp; confidence metric</li>
+            <li>Recommended disposal destination with standardized bin color coding</li>
+            <li>Step-by-step preparation guidelines (rinsing, cap removal, film separation)</li>
+            <li>Estimated natural decomposition duration (e.g., Plastic bottle: 450 years vs. Apple core: 2-5 weeks)</li>
+            <li>Quantified environmental diversion benefits: <strong>Liters of water saved</strong> and <strong>kg of CO2 emissions prevented</strong>.</li>
+          </ul>
+        </li>
+        <li><strong>Optional Gemini Vision Integration</strong>: Toggle high-detail multimodal LLM analysis via <code>GEMINI_API_KEY</code> environment variable.</li>
+      </ul>
+
+      <h3>2. 💧 Water &amp; Resource Conservation Hub</h3>
+      <ul>
+        <li><strong>Interactive Daily Water Footprint Calculator</strong>:
+          <ul>
+            <li>Dynamically calculates direct indoor consumption across showers, low-flow fixture aerators, faucet habits during hygiene, toilet flush volume, dishwashing methods, and laundry loads.</li>
+            <li>Computes personal environmental ratings and reveals annual savings potential (often 20,000+ liters/year).</li>
+            <li>Factored diet virtual water benchmark integration.</li>
+          </ul>
+        </li>
+        <li><strong>Actionable Resource Conservation Guides</strong>:
+          <ul>
+            <li>Quantified step-by-step practices across Water Conservation, Composting 101, Single-Use Plastic Elimination, and Energy Efficiency.</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h3>3. 📍 Recycling Facilities &amp; E-Waste Locator</h3>
+      <p>Searchable and filterable database of municipal clean streams, certified electronic recyclers, composting hubs, hazardous chemical depots, and textile reclamation banks. Detailed listings with accepted materials badges, operating schedules, phone numbers, and direct GPS mapping links.</p>
+
+      <h3>4. 🏆 Interactive Eco-Master Quiz</h3>
+      <p>Interactive challenges covering common recycling myths, circular materials, compost dos and don'ts, and global water conservation facts. Instant explanations with certified Eco-Master badge rewards.</p>
+
+      <h3>5. 📊 Eco-Impact &amp; Waste Audit Tracker</h3>
+      <p>Comprehensive personal dashboard calculating:</p>
+      <ul>
+        <li>Total items scanned</li>
+        <li>Landfill diversion efficiency rate (%)</li>
+        <li>Cumulative water preserved (L) &amp; CO2 emissions prevented (kg)</li>
+        <li>Material distribution breakdown across streams</li>
+        <li>Complete historical log with status updater (<code>Logged</code> → <code>Recycled</code> / <code>Composted</code> / <code>Disposed</code>) and audit management.</li>
+      </ul>
+
+      <hr class="hr" />
+
+      <h2>🛠️ Technology Stack</h2>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Layer</th>
+            <th>Technologies</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Backend &amp; Web Framework</strong></td>
+            <td>Python 3.14 / 3.10+, Flask 3.1, Jinja2, Werkzeug</td>
+          </tr>
+          <tr>
+            <td><strong>Artificial Intelligence &amp; CV</strong></td>
+            <td>PyTorch 2.15 (CPU-optimized), Torchvision, PIL (Pillow), Optional Google Gemini 1.5 Flash Vision</td>
+          </tr>
+          <tr>
+            <td><strong>Database &amp; ORM</strong></td>
+            <td>SQLite, SQLAlchemy 2.0, Flask-SQLAlchemy</td>
+          </tr>
+          <tr>
+            <td><strong>Frontend</strong></td>
+            <td>HTML5, CSS3, JavaScript (ES6+), Bootstrap 5.3, Bootstrap Icons</td>
+          </tr>
+          <tr>
+            <td><strong>Testing</strong></td>
+            <td>Python <code>unittest</code> framework</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <hr class="hr" />
+
+      <h2>🚀 Getting Started</h2>
+
+      <h3>1. Prerequisites</h3>
+      <ul>
+        <li>Python 3.10+ (Fully tested on Python 3.14)</li>
+        <li>Pip package manager</li>
+      </ul>
+
+      <h3>2. Installation</h3>
+      <ol>
+        <li><strong>Clone or navigate to the repository directory</strong>:
+          <pre><code>cd "d:/IPE Project"</code></pre>
+        </li>
+        <li><strong>Install required dependencies</strong>:
+          <pre><code>pip install -r requirements.txt</code></pre>
+          <p class="small-note">(For CPU PyTorch: <code>pip install torch torchvision --index-url https://download.pytorch.org/whl/cpu</code>)</p>
+        </li>
+        <li><strong>Initialize the database and pre-seed default facilities and guides</strong>:
+          <pre><code>python -c "from app import seed_database; seed_database()"</code></pre>
+          <p class="small-note">(Optional) Insert sample scans for demonstration:</p>
+          <pre><code>python seed_samples.py</code></pre>
+        </li>
+      </ol>
+
+      <h3>3. Running the Application</h3>
+      <p>Launch the local development server:</p>
+      <pre><code>python app.py</code></pre>
+      <p>Open your browser and navigate to:</p>
+      <pre><code>http://localhost:5000</code></pre>
+
+      <hr class="hr" />
+
+      <h2>🧪 Running Unit Tests</h2>
+      <p>Execute the automated test suite verifying database models, classification logic, water calculations, and REST endpoints:</p>
+      <pre><code>python test_app.py</code></pre>
+
+      <hr class="hr" />
+
+      <h2>📡 REST API Reference</h2>
+
+      <h3><code>POST /api/classify</code></h3>
+      <p>Classifies a discarded item via image upload, webcam frame, or search query.</p>
+      <ul>
+        <li><strong>Request (Multipart/Form-Data or JSON)</strong>:
+          <ul>
+            <li><code>image</code>: Image file (optional)</li>
+            <li><code>webcam_data</code>: Base64 JPEG data URI (optional)</li>
+            <li><code>query</code>: Text string (optional, e.g., <code>"aluminum can"</code>)</li>
+          </ul>
+        </li>
+        <li><strong>Response (JSON)</strong>:
+          <pre><code>{
+  "success": true,
+  "item_name": "PET Plastic Beverage Bottle",
+  "category_name": "Recyclable Plastic",
+  "category_key": "plastic",
+  "confidence": 0.94,
+  "bin_color": "Yellow Recycling Bin",
+  "prep_instructions": "Rinse thoroughly, remove bottle cap, flatten.",
+  "decomposition_time": "450 years",
+  "water_saved_liters": 3.5,
+  "co2_saved_kg": 0.15,
+  "scan_id": 1
+}</code></pre>
+        </li>
+      </ul>
+
+      <h3><code>POST /api/calculate-water</code></h3>
+      <p>Computes direct daily water consumption and savings potential.</p>
+      <p><strong>Request (JSON)</strong>:</p>
+      <pre><code>{
+  "shower_minutes": 8,
+  "showerhead_type": "standard",
+  "teeth_tap_running": false,
+  "toilet_flushes": 5,
+  "toilet_type": "dual_flush",
+  "dishwashing_method": "dishwasher",
+  "laundry_loads_week": 3,
+  "diet_type": "balanced"
+}</code></pre>
+
+      <h3><code>POST /api/scan/&lt;int:scan_id&gt;/status</code></h3>
+      <p>Updates recycling disposition status for a logged scan (<code>Recycled</code>, <code>Composted</code>, <code>Disposed</code>).</p>
+
+      <hr class="hr" />
+
+      <h2>📂 Project Directory Structure</h2>
+      <pre><code>d:\IPE Project\
+│
+├── app.py                   # Main Flask application &amp; route controllers
+├── config.py                # App configuration (paths, secrets, uploads)
+├── models.py                # SQLAlchemy ORM models (Scans, Facilities, Tips, Quiz)
+├── classifier.py            # AI vision engine (MobileNetV2, Gemini &amp; heuristics)
+├── conservation_data.py     # Water calculator formulas &amp; seed datasets
+├── seed_samples.py          # Demo scans seed script
+├── test_app.py              # Automated test suite
+├── requirements.txt         # Project dependencies
+├── ecosort.db               # SQLite database
+│
+├── static/
+│   ├── css/
+│   │   └── styles.css       # Custom styles, glassmorphism, responsive theme
+│   ├── js/
+│   │   └── main.js          # Client-side AJAX, webcam, drag-and-drop &amp; quiz
+│   └── uploads/             # User image scan storage
+│
+└── templates/
+    ├── base.html            # Core layout &amp; navigation
+    ├── index.html           # Classifier workspace &amp; live camera
+    ├── guide.html           # A-Z waste &amp; prep directory
+    ├── conservation.html    # Water calculator &amp; conservation guides
+    ├── facilities.html      # Recycling centers directory
+    ├── quiz.html            # Eco-Master quiz
+    └── dashboard.html       # Environmental impact audit &amp; history</code></pre>
+
+      <hr class="hr" />
+
+      <h2>📜 License</h2>
+      <p>This project is open-source and intended for academic, environmental, and community sustainability initiatives.</p>
+    </div>
+  </div>
+</body>
+</html>
